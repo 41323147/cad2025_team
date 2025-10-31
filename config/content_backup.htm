@@ -35,7 +35,7 @@
 <p></p>
 <h1>w7</h1>
 <p><span>(2a 採 Youtube 影片簡報</span>):<span> </span><a href="https://youtu.be/iOLFP90DneY">5-bar Linkage Plotter</a><span> </span>與<span> </span><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a> 零組件設計繪製完成之後，如何切割零件? 為何要切割零件？ 如何利用<span> </span><a href="https://cyberbotics.com/">Webots</a><span> </span>進行後續的控制系統設計與動態模擬 (Dynamic Simulation)？(<a href="https://mde.tw/cad2025/downloads/plotter_project.7z">plotter_project.7z</a>)</p>
-<p><a href="https://youtu.be/iOLFP90DneY">5-bar Linkage Plotter</a>:<br/>零件設計:</p>
+<h2>5-bar Linkage Plotter</h2>
 <p>如何切割:</p>
 <p>   1.先建立整體設計草圖~且在同個Part Studio繪出完整機構，才能方便確認整體運動關係。</p>
 <p>   2.確認分割位置~依據機構的運動需求和組配關係，決定從何分割零件避免重疊或出錯。</p>
@@ -45,7 +45,26 @@
 <p>為何要切:</p>
 <p>   原因:1.能使結構清晰化方便修改和管理且模擬運動時需分開在Assembly中進行旋轉等運動模擬和分析 2.避免干涉錯誤可能在零件中有碰撞或過度干涉狀況發生須確保整體能順利運作 3.方便修改、若後續零件尺寸等不合需重新調整，能提高設計靈活度跟效率。</p>
 <p><br/>控制系統設計與動態模擬:</p>
-<p><a href="https://mde.tw/cad2025/content/OpenDuck.html">Openduck mini</a>:<br/><span>零件設計:</span><br/><span></span></p>
+<p>   使用webots來後續的模擬與控制，Webots 是一款開源、多平台的機器人模擬軟體，專門用於機器人的建模、編程和動態模擬。</p>
+<p>   使用webots以下節點進行模擬</p>
+<ul>
+<li>剛體（Solid）： 在 Webots 中，機器人和環境中的大部分物件都被定義為剛體 (<code>Solid</code><span> </span>Node)。動態模擬的基礎就是計算這些剛體在外力作用下的運動。需要為剛體定義其幾何形狀、碰撞範圍<span> </span>(<code>boundingObject</code>) 和物理特性<span> </span>(<code>physics</code><span> </span>節點)，例如質量、慣性矩、摩擦係數等。</li>
+</ul>
+<ul>
+<li>關節（Joints）：<span> </span>機器人的各個部分之間通過關節 (<code>Joint</code><span> </span>Node) 連接，例如旋轉關節 (<code>HingeJoint</code>) 或線性關節 (<code>SliderJoint</code>)。這些關節限制了剛體之間的相對運動，是模擬機器人運動的關鍵。</li>
+</ul>
+<p>   以下是操作步驟：</p>
+<p>   1.首先將所有零件獨立分開轉成stl檔</p>
+<p><img caption="false" height="470" src="/images/w7-1.png" width="800"/></p>
+<p>   2.在webots新建一個世界，在主節點robot下建立多個solid，並使用shape —&gt; mesh將零件stl檔案匯入</p>
+<p><img caption="false" height="539" src="/images/w7-2.png" width="800"/></p>
+<p>   3.找出連桿零件並命名為a1、a2、b1、b2，在robot主節點下建立hingjoint節點，將連桿的solid剪貼到<span>hingjoint的endpoint子節點</span></p>
+<p style="text-align: left;"><span><img alt="" height="434" src="/images/w7-3.png" width="400"/></span></p>
+<p>   4.五連桿的a2<span>、b2是被動桿，所以將a2<span>、b2整個剪貼到a1、b1的子節點下，這樣被動桿就會跟主動桿一起連動</span></span></p>
+<p><img alt="" height="433" src="/images/w7-4.png" width="400"/></p>
+<p>   5.因為五連桿機構是閉合的，所以在被動桿a2的子節點下新增hingjoint，並在endpoint新增solidreference閉合節點，將b2放入，這樣a2和b2就會進行連動</p><h2>Openduck mini</h2>
+<h4><span></span></h4>
+<p><span>零件設計:按照老師的圖檔</span></p>
 <p><span>如何切割:</span></p>
 <p>   1.先建立整體設計草圖~且在同個Part Studio繪出完整機構，才能方便確認整體運動關係。</p>
 <p>   2.確認分割位置~依據機構的運動需求和組配關係，決定從何分割零件避免重疊或出錯。</p>
@@ -54,8 +73,11 @@
 <p>   5.建立Assembly組裝檔~將分割後零件匯入並且進行裝配和模擬。 確認連趕能運動且不干涉。</p>
 <p><span>為何要切:</span></p>
 <p><span>   原因:1.能使結構清晰化方便修改和管理且模擬運動時需分開在Assembly中進行旋轉等運動模擬和分析 2.避免干涉錯誤可能在零件中有碰撞或過度干涉狀況發生須確保整體能順利運作 3.方便修改、若後續零件尺寸等不合需重新調整，能提高設計靈活度跟效率。</span><br/><span></span></p>
-<p></p>
-<p>控制系統設計與動態模擬</p><h1>w10</h1>
+<p>控制系統設計與動態模擬 :我們使用webot來進行動態模擬，這是我們匯入的經過:</p>
+<p>1.將機器人零組件轉成stl檔以便匯入webot<br/><img alt="" height="369" src="/images/螢幕擷取畫面 2025-10-30 201812.png" width="800"/></p>
+<p>2.我們先在世界新增一個robot並且在children再接續新增Solid和Shape最後在裡面的mash把所匯出的stl檔案匯進url裡面</p>
+<p><img alt="" height="449" src="/images/螢幕擷取畫面 2025-10-30 202430.png" width="800"/></p>
+<p>3.由於我們在將零件檔匯入時遇到了機器人關節處需要將連動的零組件合成一個檔，且會發生零組件無法作動與移動，導致後續無法如期完成模擬，後續我們會持續完成並解決。</p><h1>w10</h1>
 <h1>w14</h1>
 <h1>w17</h1>
 <h1>w18</h1>

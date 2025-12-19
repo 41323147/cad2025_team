@@ -100,6 +100,49 @@
 <p></p>
 <p># 4. 在主循環內執行控制邏輯<br/>while robot.step(time_step) != -1:<br/> # 讀取傳感器值<br/> distance = ps0.getValue()</p>
 <p>簡單的向前移動邏輯<br/> max_speed = 6.28<br/> <br/> # 發送指令<br/> left_motor.setVelocity(max_speed)<br/> right_motor.setVelocity(max_speed)<br/> <br/> # (如果需要避障，則會在這裡加入條件判斷和速度調整)</p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<p></p>
+<p></p>
+<h1>w14</h1>
+<h3>w14問題解答</h3>
+<p>1.Webots模型能否用程式方法建立？</p>
+<p>     Ans:是可以的，Webots有提供多種透過程式碼建立、修改或動態新增場景物件的機制。</p>
+<p>   一.使用<span style="color: #ff0000;">Supervisor API</span>建立節點(Nodes) :Webots裡的所有場景元素都是以節點方式組織在場景樹中。</p>
+<p>   二.使用幾何節點 :Webots 支援使用 <b>IndexedFaceSet</b> 節點來定義3D網格模型，雖然建立複雜網格座標和索引列表通常不是手寫的，但節點本身是 Webots 場景（.wbt 檔案）的一部分，可透過Supervisor API 進行操作。</p>
+<p>     對於簡單幾何體 (如Box、Cylinder、Sphere)，我們可以程式化設定它們位址、大小和外觀。</p>
+<p>   三.使用PROTO檔案 : PROTO是一種Webots專用機制，允許您建立可重複使用且參數化的自訂節點，基本上就是一種模板或模組。且還可透過文字編輯器手動編寫或修改 <code>.proto</code> 檔案來定義複雜物件或機器人，這也是一種程式化建立模型的方式。</p>
+<p></p>
+<p>2.<span>有沒有辦法直接從 CAD 套件中轉出webots</span><span>的場景模型？</span></p>
+<p>    Ans:可以，但通常須經過一次轉換步驟，目前有分兩種方式 :</p>
+<p>   一.針對機器人:步驟</p>
+<ul>
+<li>
+<p data-path-to-node="19,0,1,0,0">在 SolidWorks 或 Fusion 360 中安裝 URDF Exporter 。</p>
+</li>
+<li>
+<p data-path-to-node="19,0,1,1,0">匯出成一個 <code data-index-in-node="6" data-path-to-node="19,0,1,1,0">.urdf</code> 資料夾。</p>
+</li>
+<li>
+<p data-path-to-node="19,0,1,2,0">使用 Webots 官方工具 <code data-index-in-node="15" data-path-to-node="19,0,1,2,0">urdf2webots</code> 將其轉換為 Webots 的 <code data-index-in-node="42" data-path-to-node="19,0,1,2,0">.proto</code> 格式。</p>
+</li>
+</ul>
+<p>   二.針對靜態場景：步驟</p>
+<ul>
+<li>
+<p data-path-to-node="22,0,1,0,0">從 CAD 軟體匯出為 <code data-index-in-node="12" data-path-to-node="22,0,1,0,0">.obj</code>或 <code data-index-in-node="34" data-path-to-node="22,0,1,0,0">.stl</code>。</p>
+</li>
+<li>
+<p data-path-to-node="22,0,1,1,0">關鍵優化： 在進入 Webots 前，通常需要先進 Blender 進行減面（Decimate），因為 CAD 的原始模型面數過高，會導致模擬卡頓。</p>
+</li>
+<li>
+<p data-path-to-node="22,0,1,2,0">在 Webots 中建立一個 <code data-index-in-node="15" data-path-to-node="22,0,1,2,0">Mesh</code> 節點，並指向該檔案。</p>
+</li>
+</ul>
+<p></p>
+<p>   三.雲端CAD轉換Onshape:</p>
+<p>           能夠直接透過 API 抓取雲端模型並生成 Webots 檔案，是目前最全自動化的方案。</p>
+<p></p><h1>w17</h1>
+=======
 <h2>controllers控制器匯入示範</h2>
 <p>1.首先在Webots創立的檔案中找到controllers，在裡面先建立資料夾，並放入.py文件</p>
 <p><img alt="" height="556" src="/images/controllers.png" width="800"/></p>
@@ -109,5 +152,6 @@
 <p><img alt="" height="554" src="/images/5 bar 正方形.gif" width="800"/></p>
 <h1>w14</h1>
 <p><span> </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的模型有沒有辦法用程式方法建立? 有沒有辦法直接從 CAD 套件中轉出<span> </span></span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>的場景模型？</span></p><h1>w17</h1>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; c682f16d843097657bf40e4f14d7b563c4ec684c
 <h1>w18</h1>
 <p style="padding-left: 30px;"><span style="background-color: #ffff00;"></span></p>

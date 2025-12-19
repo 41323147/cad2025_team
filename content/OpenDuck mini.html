@@ -2,7 +2,7 @@
         <head>
         <title>cad2025_hw</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -131,11 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-<<<<<<< HEAD
-                     <li><a href='About.html'>About</a><li><a href='w3.html'>w3</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li class='has-children'><a href='w14.html'>w14</a><ul class='dropdown'><li><a href='w14問題解答.html'>w14問題解答</a></li></ul><li><a href='w17.html'>w17</a><li><a href='w18.html'>w18</a></li>
-=======
                      <li><a href='About.html'>About</a><li><a href='w3.html'>w3</a><li class='has-children'><a href='w7.html'>w7</a><ul class='dropdown'><li><a href='5-bar Linkage Plotter.html'>5-bar Linkage Plotter</a><li><a href='OpenDuck mini.html'>OpenDuck mini</a></li></ul><li class='has-children'><a href='w10.html'>w10</a><ul class='dropdown'><li><a href='w10問題解答.html'>w10問題解答</a><li><a href='controllers控制器匯入示範.html'>controllers控制器匯入示範</a></li></ul><li><a href='w14.html'>w14</a><li><a href='w17.html'>w17</a><li><a href='w18.html'>w18</a></li>
->>>>>>> c682f16d843097657bf40e4f14d7b563c4ec684c
                       </ul>
                 </nav>
               </div>
@@ -146,35 +142,22 @@ img.add_border {
           </div>
           
         </header>
-<<<<<<< HEAD
-    <div id="tipue_search_content">w7 << <a href='w7.html'>Previous</a> <a href='w14.html'>Next</a> >> w14<br /><h1>w10</h1>
-<h4>1.Webots是什麼？</h4>
-<p>     webots是一款3D機器人仿真器，用於機器人建模、設計程式，且提供一個環境讓用戶能在虛擬世界模擬整個機器人動態連趕模擬。</p>
-<h4>2.Webots的特點？</h4>
-<p>   一.能夠免費開源和跨平台 二.能提供精確的剛體動力學和碰撞模擬，效果逼真。 三.豐富模型和設備，提供大量機器人模型和傳感器、執行器可自行導入。 四.提供多種語言讓使用者編寫程式 五.快速原型製作，提供環境讓使用者能快速建模、程式設計和測試模型系統。總結Webots是一個可免費在一個物理逼真、設備齊全和設計彈性高的虛擬世界，提供編寫程式和測試機器人系統模擬。</p>
-<h4>3.如何進行場景模擬？</h4>
-<p>  一. 場景建模包括 : 世界文件、節點 (如Solid、Floor、Shape、Robot)、層次結構以場景樹的形式組織、機器人配置如將所需傳感器和執行器作為子節點添加。</p>
-<p> 二.控制器設計 : 1.編寫程式 :使用Python等語言，編寫控制機器人邏輯的控制器程式  2. APL交互 :控制器透過Webots APL讀取虛擬數據，並發送給虛擬馬達。</p>
-<p> 三. 運行與交互 : 1.關聯控制器:在世界文件中將寫好的程式路徑只配給相對應的機器人節點。 2.啟動模擬:在介面中選擇時間步長，啟動仿真。 3.數據同步:時間步內。物理引擎計算世界狀態，且將傳感器數據傳輸給控制器；控制器執行邏輯後將新執行器指令傳回模擬器。</p>
-<h4>4.如何用Python進行控制系統設計？</h4>
-<h4>  一.控制器框架 : 1.導入與初始化:控制器導入controller模組  2.時間步長:定義並獲取time_step，控制循環刷新頻率  3.主循環:所有控制邏輯放在<code>while robot.step(time_step) != -1:</code> 的主循環中。</h4>
-<p>from controller import Robot</p>
-<p>1. 初始化機器人和時間步長<br/>robot = Robot()<br/>time_step = int(robot.getBasicTimeStep())</p>
-<h4>  二.設備存取與配置 : 1.使用 <code>robot.getDevice</code> 獲取機器人模型中的傳感器或馬達 2.對於傳感器，須呼叫 <code>enable(time_step)</code> 方法來數據採集。</h4>
+    <div id="tipue_search_content">5-bar Linkage Plotter << <a href='5-bar Linkage Plotter.html'>Previous</a> <a href='w10.html'>Next</a> >> w10<br /><h1>OpenDuck mini</h1>
+<h4><br/><span>零件設計: 按照老師的圖檔加以修改。</span><br/><span></span></h4>
+<p><span>如何切割:</span></p>
+<p>   1.先建立整體設計草圖~且在同個Part Studio繪出完整機構，才能方便確認整體運動關係。</p>
+<p>   2.確認分割位置~依據機構的運動需求和組配關係，決定從何分割零件避免重疊或出錯。</p>
+<p>   3.使用Split Part功能~透過平面或實體作為基準，將原本模型機構分割成多個獨立零件，形成能獨立編輯零件。</p>
+<p>   4.將各個零組件給予名稱方便後續組裝辨識。</p>
+<p>   5.建立Assembly組裝檔~將分割後零件匯入並且進行裝配和模擬。 確認連趕能運動且不干涉。</p>
+<p><span>為何要切:</span></p>
+<p><span>   原因:1.能使結構清晰化方便修改和管理且模擬運動時需分開在Assembly中進行旋轉等運動模擬和分析 2.避免干涉錯誤可能在零件中有碰撞或過度干涉狀況發生須確保整體能順利運作 3.方便修改、若後續零件尺寸等不合需重新調整，能提高設計靈活度跟效率。</span><br/><span></span></p>
 <p></p>
-<p># 2. 獲取馬達 (執行器)<br/>left_motor = robot.getDevice('left wheel motor') <br/>right_motor = robot.getDevice('right wheel motor')</p>
-<p>3. 獲取距離傳感器 (傳感器) 並啟用<br/>ps0 = robot.getDevice('ps0') <br/>ps0.enable(time_step)</p>
-<h4>  三.編寫控制邏輯 : 1.主循環內使用設備實例的 <code>getValue()</code> 函數讀取最新的傳感器數據 2.決策與計算:根據傳感器數據計算所需的馬達控制量 3.發送指令:使用執行器的 API 方法如馬達的 <code>setVelocity()</code> 或 <code>setPosition()</code>）將控制信號發送給虛擬機器人。</h4>
-<p></p>
-<p># 4. 在主循環內執行控制邏輯<br/>while robot.step(time_step) != -1:<br/> # 讀取傳感器值<br/> distance = ps0.getValue()</p>
-<p>簡單的向前移動邏輯<br/> max_speed = 6.28<br/> <br/> # 發送指令<br/> left_motor.setVelocity(max_speed)<br/> right_motor.setVelocity(max_speed)<br/> <br/> # (如果需要避障，則會在這裡加入條件判斷和速度調整)</p>
-<p></p>
-<p></p>
-<br />w7 << <a href='w7.html'>Previous</a> <a href='w14.html'>Next</a> >> w14</div>
-=======
-    <div id="tipue_search_content">OpenDuck mini << <a href='OpenDuck mini.html'>Previous</a> <a href='w10問題解答.html'>Next</a> >> w10問題解答<br /><h1>w10</h1>
-<p><span> </span><a href="https://cyberbotics.com/">Webots</a><span><span> </span>是什麼？有什麼特點？ 如何進行場景模擬？ 如何用 Python 進行控制系統設計？ (</span><a href="https://cyberbotics.com/doc/guide/tutorials">Tutorial</a><span>)</span></p><br />OpenDuck mini << <a href='OpenDuck mini.html'>Previous</a> <a href='w10問題解答.html'>Next</a> >> w10問題解答</div>
->>>>>>> c682f16d843097657bf40e4f14d7b563c4ec684c
+<p>控制系統設計與動態模擬 :我們使用webot來進行動態模擬，這是我們匯入的經過:</p>
+<p>1.將機器人零組件轉成stl檔以便匯入webot<br/><img alt="" height="369" src="./../images/螢幕擷取畫面 2025-10-30 201812.png" width="800"/></p>
+<p>2.我們先在世界新增一個robot並且在children再接續新增Solid和Shape最後在裡面的mash把所匯出的stl檔案匯進url裡面<img alt="" height="449" src="./../images/螢幕擷取畫面 2025-10-30 202430.png" width="800"/></p>
+<p>3.由於我們在將零件檔匯入時遇到了機器人關節處需要將連動的零組件合成一個檔，且會發生零組件無法作動與移動，導致後續無法如期完成模擬，後續我們會持續完成並解決。</p>
+<br />5-bar Linkage Plotter << <a href='5-bar Linkage Plotter.html'>Previous</a> <a href='w10.html'>Next</a> >> w10</div>
         
     <!-- footer -->
       <div class="container">
